@@ -10,22 +10,21 @@ import java.util.Scanner;
 public class Client {
 
     private static final Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
         String host = "netology.homework";
         int port = 10001;
 
         try (Socket clientSocket = new Socket(host, port);
              PrintWriter out =
-                new PrintWriter(clientSocket.getOutputStream(), true);
+                     new PrintWriter(clientSocket.getOutputStream(), true);
              BufferedReader in = new BufferedReader(
                      new InputStreamReader(clientSocket.getInputStream()))) {
 
             while (true) {
                 String answer = in.readLine();
                 System.out.println(answer);
-
-
-                String message = scanner.nextLine(); //бесконечно ждет ввода 1 - вопрос, 1 ответ
+                String message = scanner.nextLine();
                 out.println(message);
             }
 
