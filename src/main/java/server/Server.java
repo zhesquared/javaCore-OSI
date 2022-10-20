@@ -15,11 +15,9 @@ public class Server {
                 try (Socket clientSocket = serverSocket.accept(); //ожидание клиента
                      PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
                      BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()))) {
-
                     System.out.println("New connection accepted");
 
                     greetings(clientSocket, out, in);
-
                 } catch (IOException exception) {
                     System.out.println(exception.getMessage());
                 }
